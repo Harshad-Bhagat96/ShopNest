@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Orders</title>
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Redux library for state management -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.min.js"></script>
+
+    <!-- Redux store configuration -->
+    <script src="/js/redux-store.js"></script>
+
+    <!-- Shared functionality used across pages -->
+    <script src="/js/common.js" defer></script>
+
+    <!-- Orders page functionality -->
+    <script src="/js/orders.js" defer></script>
+</head>
+
+<body>
+    <!-- Header and navigation -->
+    <header>
+        <a class="logo" href="/">
+            Simple<span>Store</span>
+        </a>
+
+        <nav>
+            <a href="/">Shop</a>
+            <a href="/cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <!-- Main orders section -->
+    <main class="section">
+        <h1>Your orders</h1>
+
+        <!-- Displays loading messages or errors -->
+        <p id="message"></p>
+
+        <!-- orders.js renders the user's orders here -->
+        <div id="orders"></div>
+    </main>
+</body>
+</html>

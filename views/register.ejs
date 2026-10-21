@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Register</title>
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Redux library for state management -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.min.js"></script>
+
+    <!-- Redux store configuration -->
+    <script src="/js/redux-store.js"></script>
+
+    <!-- Shared functionality used across pages -->
+    <script src="/js/common.js" defer></script>
+
+    <!-- Login and registration functionality -->
+    <script src="/js/auth.js" defer></script>
+</head>
+
+<body>
+    <!-- Header and navigation -->
+    <header>
+        <a class="logo" href="/">
+            Simple<span>Store</span>
+        </a>
+
+        <nav>
+            <a href="/">Shop</a>
+            <a href="/login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Main registration section -->
+    <main class="formwrap">
+
+        <!-- Registration form -->
+        <form id="register" class="panel">
+            <h1>Create account</h1>
+
+            <!-- User's name -->
+            <label>
+                Name
+                <input name="name" required>
+            </label>
+
+            <!-- User's email address -->
+            <label>
+                Email
+                <input
+                    name="email"
+                    type="email"
+                    required
+                >
+            </label>
+
+            <!-- Password with minimum length validation -->
+            <label>
+                Password (8+ characters)
+                <input
+                    name="password"
+                    type="password"
+                    minlength="8"
+                    required
+                >
+            </label>
+
+            <!-- Submit registration form -->
+            <button class="button">Register</button>
+
+            <!-- Displays success messages or errors -->
+            <p id="message"></p>
+        </form>
+
+    </main>
+</body>
+</html>

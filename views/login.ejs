@@ -1,0 +1,129 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login</title>
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Redux library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.min.js"></script>
+
+    <!-- Redux store configuration -->
+    <script src="/js/redux-store.js"></script>
+
+    <!-- Shared functionality -->
+    <script src="/js/common.js" defer></script>
+
+    <!-- Login and authentication functionality -->
+    <script src="/js/auth.js" defer></script>
+</head>
+
+<body>
+    <!-- Header and navigation -->
+    <header>
+        <a class="logo" href="/">
+            Simple<span>Store</span>
+        </a>
+
+        <nav>
+            <a href="/">Shop</a>
+            <a href="/register.html">Register</a>
+        </nav>
+    </header>
+
+    <!-- Main login section -->
+    <main class="formwrap">
+
+        <!-- Login form -->
+        <form id="login" class="panel">
+            <h1>Login</h1>
+
+            <!-- Email input -->
+            <label>
+                Email
+                <input
+                    name="email"
+                    type="email"
+                    required
+                >
+            </label>
+
+            <!-- Password input -->
+            <label>
+                Password
+                <input
+                    name="password"
+                    type="password"
+                    required
+                >
+            </label>
+
+            <!-- Submit login form -->
+            <button class="button">Login</button>
+
+            <!-- Displays login errors or status messages -->
+            <p id="message"></p>
+
+            <!-- Link to registration page -->
+            <a href="/register.html">Create account</a>
+        </form>
+
+        <!-- Forgot password link -->
+        <p>
+            <a href="#" id="forgotLink">Forgot password?</a>
+        </p>
+
+        <!-- Forgot password functionality -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                // Handle click on "Forgot password?"
+                document.getElementById("forgotLink").onclick =
+                    async (e) => {
+
+                        // Prevent the link from navigating
+                        e.preventDefault();
+
+                        // Ask the user for their account email
+                        const email = prompt("Enter your account email");
+
+                        // Stop if no email was entered
+                        if (!email) return;
+
+                        try {
+                            // Send a password-reset request to the backend
+                            const r = await fetch(
+                                "/api/auth/forgot-password",
+                                {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({ email })
+                                }
+                            );
+
+                            // Convert the response into JSON
+                            const d = await r.json();
+
+                            // Display the backend response message
+                            document.getElementById("message").textContent =
+                                d.message || "Request sent.";
+
+                        } catch {
+                            // Display an error if the request fails
+                            document.getElementById("message").textContent =
+                                "Could not send request.";
+                        }
+                    };
+            });
+        </script>
+
+    </main>
+</body>
+</html>

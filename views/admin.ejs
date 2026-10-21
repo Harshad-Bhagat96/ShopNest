@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on mobile and desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title displayed in the browser tab -->
+    <title>ShopNest Admin</title>
+
+    <!-- Loads the common CSS styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Loads the Redux library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.min.js"></script>
+
+    <!-- Loads the Redux store used by the application -->
+    <script src="/js/redux-store.js"></script>
+
+    <!-- Loads common JavaScript functionality -->
+    <script src="/js/common.js" defer></script>
+
+    <!-- Loads admin dashboard functionality -->
+    <script src="/js/admin.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER / NAVIGATION ================= -->
+    <header>
+        <!-- Website logo; clicking it opens the home page -->
+        <a class="logo" href="/">
+            Shop<span>Nest</span>
+        </a>
+
+        <!-- Navigation links -->
+        <nav>
+            <a href="/">Shop</a>
+            <a href="/orders.html">My orders</a>
+        </nav>
+    </header>
+
+
+    <!-- ================= ADMIN DASHBOARD ================= -->
+    <main class="section">
+
+        <!-- Main heading -->
+        <h1>Admin dashboard</h1>
+
+        <!-- Displays messages, errors, or status information -->
+        <p id="message"></p>
+
+        <!-- JavaScript displays dashboard statistics here -->
+        <div id="overview" class="stats"></div>
+
+
+        <!-- ================= ADMIN CONTENT ================= -->
+        <div class="admin">
+
+            <!-- ================= ADD / EDIT PRODUCT FORM ================= -->
+            <form id="productForm" class="panel">
+
+                <!-- Form title can change when editing a product -->
+                <h2 id="formTitle">Add product</h2>
+
+                <!-- Stores the product ID when editing an existing product -->
+                <input type="hidden" name="id">
+
+                <!-- Product name -->
+                <label>
+                    Name
+                    <input name="name" required>
+                </label>
+
+                <!-- Product description -->
+                <label>
+                    Description
+                    <textarea name="description"></textarea>
+                </label>
+
+                <!-- Product category -->
+                <label>
+                    Category
+                    <input name="category" value="General" required>
+                </label>
+
+                <!-- Product price in Indian rupees -->
+                <label>
+                    Price (INR)
+                    <input
+                        name="price"
+                        type="number"
+                        min="0"
+                        step=".01"
+                        required
+                    >
+                </label>
+
+                <!-- Available product quantity -->
+                <label>
+                    Stock
+                    <input
+                        name="stock"
+                        type="number"
+                        min="0"
+                        required
+                    >
+                </label>
+
+                <!-- Product image URL -->
+                <label>
+                    Image URL
+                    <input name="image" type="url">
+                </label>
+
+                <!-- Optional image file upload -->
+                <label>
+                    Or upload image (optional)
+                    <input
+                        id="imageFile"
+                        type="file"
+                        accept="image/png,image/jpeg,image/webp,image/gif"
+                    >
+                </label>
+
+                <!-- Marks the product as featured when checked -->
+                <label>
+                    <input name="featured" type="checkbox">
+                    Featured product
+                </label>
+
+                <!-- Saves the product -->
+                <button class="button">
+                    Save product
+                </button>
+
+                <!-- Cancels the current edit -->
+                <button
+                    id="cancel"
+                    type="button"
+                    class="secondary hidden"
+                >
+                    Cancel edit
+                </button>
+
+            </form>
+
+
+            <!-- ================= PRODUCT LIST ================= -->
+            <section>
+
+                <h2>Products</h2>
+
+                <!-- JavaScript displays products and admin actions here -->
+                <div id="adminProducts"></div>
+
+
+                <!-- ================= RECENT ORDERS ================= -->
+                <h2>Recent orders</h2>
+
+                <!-- JavaScript displays recent orders here -->
+                <div id="adminOrders"></div>
+
+
+                <!-- ================= USER MANAGEMENT ================= -->
+                <h2>Users</h2>
+
+                <!-- JavaScript displays users and available admin actions here -->
+                <div id="adminUsers"></div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

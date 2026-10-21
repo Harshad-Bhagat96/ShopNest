@@ -1,0 +1,69 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Product | ShopNest</title>
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Redux library for state management -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.min.js"></script>
+
+    <!-- Redux store configuration -->
+    <script src="/js/redux-store.js"></script>
+
+    <!-- Shared functionality used across pages -->
+    <script src="/js/common.js" defer></script>
+
+    <!-- Product details page functionality -->
+    <script src="/js/product.js" defer></script>
+</head>
+
+<body>
+    <!-- Header and navigation -->
+    <header>
+        <a class="logo" href="/">
+            Shop<span>Nest</span>
+        </a>
+
+        <nav>
+            <a href="/">Shop</a>
+
+            <!-- Cart link with item count -->
+            <a href="/cart.html">
+                Cart (<span id="cartCount">0</span>)
+            </a>
+
+            <a href="/orders.html">Orders</a>
+
+            <!-- Login link, updated by common.js -->
+            <a id="authLink" href="/login.html">Login</a>
+
+            <!-- Logout button, shown when appropriate -->
+            <button
+                id="logout"
+                class="secondary hidden"
+            >
+                Logout
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main product details section -->
+    <main class="section">
+
+        <!-- Displays loading messages or errors -->
+        <p id="message"></p>
+
+        <!-- product.js loads and displays the selected product here -->
+        <div id="product" class="product-detail">
+            Loading product…
+        </div>
+
+    </main>
+</body>
+</html>

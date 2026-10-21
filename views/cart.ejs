@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile and desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title displayed in the browser tab -->
+    <title>Cart</title>
+
+    <!-- Loads the website's CSS styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Loads the Redux library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.min.js"></script>
+
+    <!-- Loads the application's Redux store -->
+    <script src="/js/redux-store.js"></script>
+
+    <!-- Loads shared JavaScript functionality -->
+    <script src="/js/common.js" defer></script>
+
+    <!-- Loads cart-specific JavaScript functionality -->
+    <script src="/js/cart.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER / NAVIGATION ================= -->
+    <header>
+
+        <!-- Website logo; clicking it opens the home page -->
+        <a class="logo" href="/">
+            Simple<span>Store</span>
+        </a>
+
+        <!-- Navigation links -->
+        <nav>
+            <a href="/">Shop</a>
+            <a href="/orders.html">Orders</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= CART MAIN SECTION ================= -->
+    <main class="section">
+
+        <!-- Main heading -->
+        <h1>Your cart</h1>
+
+        <!-- Displays messages such as errors or success information -->
+        <p id="message"></p>
+
+        <!-- JavaScript inserts the cart items into this div -->
+        <div id="items"></div>
+
+        <!-- JavaScript inserts the cart summary into this div -->
+        <div id="summary"></div>
+
+    </main>
+
+</body>
+</html>
